@@ -1,0 +1,13 @@
+package presenter;
+
+public class TestMVPCommand implements Command
+{
+
+	@Override
+	public void doCommand(String arg) 
+	{
+		System.out.println(arg);
+		
+	}
+
+}

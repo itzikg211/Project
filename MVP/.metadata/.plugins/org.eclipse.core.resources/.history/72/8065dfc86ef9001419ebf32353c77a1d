@@ -1,0 +1,33 @@
+package presenter;
+
+import java.util.Observable;
+import java.util.Observer;
+
+import model.Model;
+import view.View;
+import algorithms.mazeGenerators.Maze;
+
+public class Presenter implements Observer
+{
+	View view;
+	Model model;
+	
+public Presenter(TestMVPCommand c) 
+{
+	view.setCommands(c);
+	
+}
+	
+	@Override
+	public void update(Observable o, Object arg) 
+	{
+		Command c = view.getUserCommand();
+		c.doCommand("TestMVPCommand");
+		System.out.println(c.toString());
+		Maze m = model.getMaze();
+		view.displayMaze(m);
+
+		
+	}
+	
+}

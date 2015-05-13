@@ -1,0 +1,28 @@
+package presenter;
+
+import java.util.Observable;
+import java.util.Observer;
+
+import model.Model;
+import view.View;
+
+public class Presenter implements Observer
+{
+	View view;
+	Model model;
+	@Override
+	public void update(Observable o, Object arg) 
+	{
+	    if(o == view)
+	    {
+	        System.out.println("update view");
+	    }
+	    if(o == model)
+	    {
+	        System.out.println("update model");
+	    }
+
+		
+	}
+	
+}

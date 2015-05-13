@@ -1,0 +1,50 @@
+package view;
+
+import java.util.Observable;
+
+import algorithms.mazeGenerators.Maze;
+import algorithms.search.Solution;
+import controller.Command;
+
+public class MyView extends Observable implements View{
+
+	@Override
+	public void start() 
+	{
+		// TODO Auto-generated method stub
+		System.out.println("start");
+	}
+
+	@Override
+	public void setCommands(Command c) 
+	{
+		// TODO Auto-generated method stub
+		System.out.println("set commands");
+		
+	}
+
+	@Override
+	public Command getUserCommand() 
+	{
+		// TODO Auto-generated method stub
+		System.out.println("get user commands");
+		return null;
+	}
+
+	@Override
+	public void displayMaze(Maze m) 
+	{
+		// TODO Auto-generated method stub
+		System.out.println("display maze");
+		
+	}
+
+	@Override
+	public void displaySolution(Solution s) 
+	{
+		// TODO Auto-generated method stub
+		System.out.println("display Solution");
+		
+	}
+
+}
