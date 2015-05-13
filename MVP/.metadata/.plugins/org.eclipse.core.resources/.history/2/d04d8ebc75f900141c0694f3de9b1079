@@ -1,7 +1,8 @@
 package boot;
 
-import model.MyModel;
 import presenter.Presenter;
+import presenter.TestMVPCommand;
+import model.MyModel;
 import view.MyView;
 
 public class Run {
