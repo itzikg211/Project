@@ -8,6 +8,7 @@ public class Run {
 
 	public static void main(String[] args) 
 	{
+		//my Program
 		//System.out.println("hello");
 		MyModel m = new MyModel();
 		MyView v = new MyView();
