@@ -1,0 +1,1 @@
+java -classpath "test.jar;algo.jar" test.Test
