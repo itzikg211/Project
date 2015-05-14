@@ -1,8 +1,8 @@
 package presenter;
 
-import model.MyModel;
+//import model.MyModel;
 
-public class TestMVPCommand implements Command
+/*public class TestMVPCommand implements Command
 {
 
 	@Override
@@ -14,4 +14,4 @@ public class TestMVPCommand implements Command
 		
 	}
 
-}
+}*/

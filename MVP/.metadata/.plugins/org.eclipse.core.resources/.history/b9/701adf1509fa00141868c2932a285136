@@ -1,0 +1,103 @@
+package presenter;
+
+import java.util.HashMap;
+import java.util.Observable;
+import java.util.Observer;
+
+import model.Model;
+import view.View;
+
+public class Presenter implements Observer
+{
+	View view;
+	Model model;
+	public HashMap<String, Command> commands = new HashMap<String,Command>();
+	
+	public Presenter(View view,Model model) 
+	{
+		this.view = view;
+		this.model = model;
+		setCommands();
+		
+	}
+	
+	@Override
+	public void update(Observable o, Object arg) 
+	{
+		
+		int choise = (int)arg;
+		switch (choise)
+		{
+			case 1:
+			{
+				Command c = getUserCommand("makeMaze");
+				c.doCommand("makeMaze");
+				break;
+			}
+			case 2:
+			{
+				Command c = getUserCommand("solveMaze");
+				c.doCommand("solveMaze");
+				break;
+			}
+			case 3:
+			{
+				view.displayMaze(model.getMaze());
+				break;
+			}
+			case 4:
+			{
+				view.displaySolution(model.getSolution());
+				break;
+			}
+			case 111:
+				System.out.println("finished");
+				//System.exit(0);
+				break;
+			
+			default: System.out.println("invalid notification argument");
+		}
+	}
+	
+	public void setCommands() 
+	{
+		commands.put("makeMaze",new MakeCommand());
+		commands.put("solveMaze",new SolveCommand());
+		
+	}
+
+	public Command getUserCommand(String com) 
+	{
+		// TODO Auto-generated method stub
+		System.out.println("get user commands");
+		return commands.get(com);
+	}
+	
+	
+	public class MakeCommand implements Command
+	{
+
+		@Override
+		public void doCommand(String arg) 
+		{ 
+			System.out.println(arg);
+			model.generateMaze(100,100);
+			
+		}
+
+	}
+	
+	public class SolveCommand implements Command
+	{
+
+		@Override
+		public void doCommand(String arg) 
+		{ 
+			System.out.println(arg);
+			model.solveMaze(model.getMaze());
+		}
+
+	}
+	
+	
+}

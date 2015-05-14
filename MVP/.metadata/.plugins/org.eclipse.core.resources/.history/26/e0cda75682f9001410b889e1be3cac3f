@@ -1,0 +1,50 @@
+package presenter;
+
+import java.util.HashMap;
+import java.util.Observable;
+import java.util.Observer;
+
+import model.Model;
+import view.View;
+import algorithms.mazeGenerators.Maze;
+
+public class Presenter implements Observer
+{
+	View view;
+	Model model;
+	public HashMap<String, Command> commands = new HashMap<String,Command>();
+	
+	public Presenter(View view,Model model) 
+	{
+		this.view = view;
+		this.model = model;
+		TestMVPCommand test = new TestMVPCommand();
+		setCommands(test);
+		
+	}
+	
+	@Override
+	public void update(Observable o, Object arg) 
+	{
+		Command c = getUserCommand();
+		c.doCommand("TestMVPCommand");
+		Maze m = model.getMaze();
+		view.displayMaze(m);
+
+		
+	}
+	
+	public void setCommands(TestMVPCommand c) 
+	{
+		commands.put("TestMVPCommand",c);
+		
+	}
+
+	public Command getUserCommand() 
+	{
+		// TODO Auto-generated method stub
+		System.out.println("get user commands");
+		return commands.get("TestMVPCommand");
+	}
+	
+}
